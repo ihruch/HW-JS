@@ -8,19 +8,37 @@
 //Напишите функцию aclean(arr), которая возвращает массив слов, очищенный от анаграмм.
 var arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
 
-function aclean(arr){
-    var obj = {};
+// function aclean(arr){
+//     var obj = {};
+//
+//     for (var i = 0; i < arr.length; i++) {
+//         var resl = arr[i].toLowerCase().split('').sort().join('');
+//         obj[resl] = arr[i];
+//    } //end for
+//
+//    var newArr = [];
+//     for (var key in obj) {
+//         newArr.push(obj[key]);
+//     }
+//     return newArr;
+//
+// }
+
+function aclean(arr) {
+
+
+    var objM = {};
 
     for (var i = 0; i < arr.length; i++) {
-        var resl = arr[i].toLowerCase().split('').sort().join('');
-        obj[resl] = arr[i];
-   } //end for
 
-   var newArr = [];
-    for (var key in obj) {
-        newArr.push(obj[key]);
+        var val = arr[i].toLowerCase().split('').sort().join('');
+        objM[val]  = arr[i];
     }
-    return newArr;
-
+    var result = [];
+    for (var key in objM) {
+        result.push(objM[key])
+    }
+    return result;
 }
+
 console.log(aclean(arr));
