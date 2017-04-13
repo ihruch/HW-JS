@@ -1,0 +1,95 @@
+
+<!--   ТАБИКИ   -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ТАБИКИ</title>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <style>
+        .wrap{
+            width: 600px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .tabs {
+        }
+        .tabs span{
+            display: inline-block;
+            padding: 12px 30px ;
+            background-color: #eeeeee;
+
+            border-radius: 5px 5px 0 0;
+        }
+
+        .tab_cont{
+
+        }
+        .tab_cont .item_cont{
+            background-color: #eeeeee;
+            margin: 0;
+            padding: 5px;
+
+        }
+        .tab_cont .item_cont h3{
+            margin: 0;
+            padding: 0;
+        }
+        .is_active{
+            background-color: #1b6d99 !important;
+            color: #fff;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <div class="tabs">
+            <span>Пункт 1</span>
+            <span>Пункт 2</span>
+            <span>Пункт 3</span>
+        </div>
+
+        <div class="tab_cont">
+            <div class="item_cont">
+                <h3>Пункт контекста  №1</h3>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, repellat!
+            </div>
+            <div class="item_cont">
+                <h3>Пункт контекста  №2</h3>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, repellat!
+            </div>
+            <div class="item_cont">
+                <h3>Пункт контекста  №3</h3>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, repellat!
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $('.tabs span').eq(0).addClass('is_active');
+        $('.tab_cont .item_cont').not(' :first').hide();
+        $('.tab_cont .item_cont').addClass('is_active');
+        $('.tabs span').click(function () {
+            var numEl = $(this).index();
+            $('.tabs span').removeClass('is_active').eq(numEl).addClass('is_active');
+            $('.tab_cont .item_cont').hide().eq(numEl).fadeIn(600).addClass('is_active');
+
+        });
+    });// end ready
+
+</script>
+</body>
+</html>

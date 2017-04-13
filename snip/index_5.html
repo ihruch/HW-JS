@@ -1,0 +1,129 @@
+<!--
+        TOOLTIP
+
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TOOLTIP</title>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous">
+    </script>
+    <style>
+        .wrap{
+            background-color: #eeeeee;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            /*border: 1px solid #000;*/
+        }
+        .button{
+            margin: auto;
+            width: 150px;
+            font-size: 24px;
+            line-height: 40px;
+
+            text-align: center;
+            background-color: lightblue;
+            border-radius: 5px ;
+            cursor: pointer;
+        }
+        .tooltip{
+            position: fixed;
+            top: 0;
+            display: none;
+            width: 300px;
+            border: 1px solid #000;
+            background-color: tomato;
+
+            border-radius: 5px ;
+            box-shadow: 0px 4px 5px 0px rgba(0,0,0, 0.4);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="button">
+            ЖМИ
+            <div class="tooltip">Lorem ipsum dolor sit amet. </div>
+        </div>
+    </div>
+
+<script>
+    $(document).ready(function(){
+
+      // size window
+        var widthWin,
+            heightWin;
+        function resizeWin() {
+
+            widthWin = $(window).width();
+            heightWin = $(window).height();
+            console.log(widthWin);
+            console.log(heightWin);
+        }
+        resizeWin();
+        $(window).resize(function () {
+            resizeWin();
+        });
+      // hover
+
+        $('.tooltip').each(function () {
+
+            $(this).parent().hover(function () {
+                $(this).find('.tooltip').fadeIn(700);
+            }, function () {
+                $(this).find('.tooltip').fadeOut(200);
+            });
+        });
+
+      // position tooltip
+        $(document).mousemove(function(e) {
+
+            var mouseX = e.pageX;
+            var mouseY = e.pageY;
+
+            var widthTooltip,
+                heightTooltip;
+
+
+            $('.tooltip').each(function () {
+                $tooltip1 = $(this);
+                widthTooltip = $tooltip1.outerWidth();
+                heightTooltip = $tooltip1.outerHeight();
+
+                $tooltip1.css({
+                    'left' : mouseX,
+                    'top' : mouseY + 25
+                });
+
+                if( mouseX + widthTooltip > widthWin){
+                    $tooltip1.css({
+                        'left' : mouseX - widthTooltip
+                    });
+                };
+
+                if(mouseY + heightTooltip + 25 > heightWin){
+                    $tooltip1.css({
+                        'top' : mouseY - heightTooltip
+                    });
+                };
+
+
+
+            });  // end each
+
+        });
+
+
+    });
+
+</script>
+</body>
+</html>

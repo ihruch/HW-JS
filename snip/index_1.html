@@ -1,0 +1,76 @@
+<!--
+ ПРОСТОЙ АККОРДИН !!!!!!!!!!
+
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 1</title>
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <style>
+        .wrap{
+            width: 500px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            padding: 5px;
+
+        }
+        h2{
+            font-size: 20px;
+            font-weight: 700;
+            background-color: tomato;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+            margin: 0;
+            padding: 0;
+            margin-top: 10px;
+            line-height: 30px;
+
+        }
+        article{
+            background-color: #eeeeee;
+            border-radius: 0 0 5px 5px;
+            padding: 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h2>Lorem ipsum dolor.</h2>
+        <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem excepturi id minus modi voluptatum. Atque.</article>
+
+        <h2>Lorem ipsum dolor.</h2>
+        <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem excepturi id minus modi voluptatum. Atque.</article>
+
+        <h2>Lorem ipsum dolor.</h2>
+        <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem excepturi id minus modi voluptatum. Atque.</article>
+    </div>
+
+<script>
+    $(document).ready(function () {
+       $('.wrap').find('article').not(' :first').hide();
+
+       $('h2').click(function () {
+           var artcEl = $(this).next();
+
+           if ( artcEl.is(' :visible') ){
+                  artcEl.slideUp();
+           }else{
+               $('.wrap').find('article').slideUp();
+               artcEl.slideDown();
+           };
+       });
+
+    });// end ready
+
+</script>
+</body>
+</html>

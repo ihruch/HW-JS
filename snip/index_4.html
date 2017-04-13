@@ -1,0 +1,126 @@
+<!--
+    SLIDER
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SLIDER</title>
+
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous">
+    </script>
+
+    <style>
+        .wrap{
+            width: 100%;
+            display: flex;
+            flex-flow: column wrap;
+
+        }
+        .slide_container{
+            margin: auto;
+            border: 5px solid #700;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+        }
+        .slider{
+            height: 100%;
+            position: relative;
+
+        }
+        .slide_item{
+            height: 100%;
+            float: left;
+            text-align: center;
+
+        }
+        .one_bg{
+            background-color: tomato;
+        }
+        .two_bg{
+            background-color: lightgreen;
+        }
+
+        .buttons{
+            text-align: center;
+            list-style: none;
+        }
+        .buttons .prev{
+            display: inline-block;
+            padding: 7px 15px;
+            background: goldenrod;
+            color: #fff;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .buttons .next{
+            display: inline-block;
+            padding: 7px 15px;
+            background: goldenrod;
+            color: #fff;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="slide_container">
+            <div class="slider">
+                <div class="slide_item one_bg">Lorem 1</div>
+                <div class="slide_item two_bg">Lorem 2</div>
+                <div class="slide_item one_bg">Lorem 3</div>
+                <div class="slide_item two_bg">Lorem 4</div>
+            </div>
+        </div>
+        <ul class="buttons">
+            <li class="prev">Prev</li>
+            <li class="next">Next</li>
+        </ul>
+    </div>
+
+<script>
+    $(document).ready(function () {
+
+            var width = $('.slide_container').width();
+            $('.slide_item').width(width);
+            $('.slider').width(width*($('.slide_item').length));
+
+           //position
+            $('.slider').css('left', -width);
+            $('.slider .slide_item:last-child').prependTo($('.slider'));
+
+
+            //move next
+              function moveNext () {
+                 $('.slider').animate({
+                     'margin-left': -width
+                 },500, function(){
+                     $('.slider .slide_item:first-child').appendTo($('.slider'));
+                     $('.slider').css('margin-left', 0);
+                 });
+              } // end func
+
+            //move prev
+                function moveprev () {
+                    $('.slider').animate({
+                        'margin-left': width
+                    },500, function(){
+                        $('.slider .slide_item:last-child').prependTo($('.slider'));
+                        $('.slider').css('margin-left', 0);
+                    });
+                } // end func
+            //click button
+               $('.prev').click(moveprev);
+               $('.next').click(moveNext);
+
+    });// end ready
+</script>
+</body>
+</html>

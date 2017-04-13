@@ -1,0 +1,186 @@
+<!--
+        ЛИПКОЕ МЕНЮ !!
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+       src="https://code.jquery.com/jquery-2.2.4.min.js"
+       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+       crossorigin="anonymous">
+    </script>
+
+    <style>
+        h1 {
+            font-size: 100px;
+        }
+        nav{
+            width: 100%;
+            height: 80px;
+            background-color: #8a6d3b;
+            transition: all 400ms ease;
+            margin-bottom: 100px;
+        }
+        .navPos {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: block;
+            width: 80px;
+            font-size: 18px;
+            line-height: 25px;
+            background-color: #eeeeee;
+            padding-left: 5px;
+        }
+        .scrollPos{
+            position: fixed;
+            top: 40px;
+            right: 10px;
+            display: block;
+            width: 80px;
+            font-size: 18px;
+            line-height: 25px;
+            background-color: #eeeeee;
+            padding-left: 5px;
+        }
+        .fixedCls {
+            position: fixed;
+            top: 0;
+            box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+        }
+        .redText{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+      <div class="navPos">0</div>
+      <div class="scrollPos">0</div>
+
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <nav>
+
+      </nav>
+      <div class="content">
+          <p class="redText">  Aliquid autem delectus deleniti dolor eligendi
+          exercitationem ipsa, ipsum laborum laudantium minima nesciunt placeat quae quam recusandae sed sequi totam,
+          vero vitae?</span></p>
+      <p>Consequatur cum expedita maiores numquam, odio repellendus tenetur veniam! Ab ad autem culpa delectus deserunt
+          ea et eveniet harum hic iste magni, maxime minima neque praesentium quas quasi sequi vel.</p>
+      <p>Alias aperiam, at cum delectus deleniti dicta earum eos esse et ipsam laboriosam minus molestiae natus nobis
+          omnis quasi sapiente velit. Consequuntur doloribus ducimus, illo magni neque officia quam? Repudiandae!</p>
+      <p>A ab architecto commodi culpa dicta error est ex fugit harum hic inventore labore libero minima, nam
+          necessitatibus nisi odio provident qui quia quisquam quos ratione sequi similique ut voluptatum.</p>
+      <p>Doloremque, dolorum impedit ipsum maiores molestias odit perferendis quae quibusdam, sit tempore vitae
+          voluptates? Aut ex expedita harum mollitia. Dicta dolores hic non perspiciatis. Fugit hic incidunt nisi sed
+          ut!</p>
+      <p>Accusamus aspernatur autem, consectetur excepturi explicabo facere facilis fuga, iste iusto labore laborum
+          magni maxime, mollitia nam nisi pariatur quasi quo rem reprehenderit repudiandae sapiente similique soluta
+          ullam unde voluptates!</p>
+      <p>Ab aliquid, beatae dolor dolore ducimus iste libero neque non officiis qui quidem quod repellat sequi, suscipit
+          veritatis. Atque consequuntur eaque excepturi labore obcaecati odit omnis reprehenderit sed sit soluta!</p>
+      <p>Accusamus aliquam, dolor eum exercitationem fugiat labore minima molestias repudiandae sunt temporibus totam
+          vero voluptate? Consequatur dicta exercitationem facilis, illum ipsa itaque rem! Dignissimos est, ipsa minima
+          nesciunt sequi tempore?</p>
+      <p>Aliquam aliquid aspernatur consequatur, debitis exercitationem facilis incidunt, inventore itaque libero, modi
+          nam neque quaerat recusandae rem sunt velit vero! Delectus eveniet facere ipsum minus odit optio quisquam
+          sapiente vel.</p>
+      <p>Beatae commodi, consequuntur error et fugiat in incidunt itaque minima nihil odit possimus quo, sint vel!
+          Accusamus dolorem molestias optio quod rerum. Enim id maiores mollitia qui quod sit sunt.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid autem delectus deleniti dolor eligendi
+          exercitationem ipsa, ipsum laborum laudantium minima nesciunt placeat quae quam recusandae sed sequi totam,
+          vero vitae?</p>
+      <p>Consequatur cum expedita maiores numquam, odio repellendus tenetur veniam! Ab ad autem culpa delectus deserunt
+          ea et eveniet harum hic iste magni, maxime minima neque praesentium quas quasi sequi vel.</p>
+      <p>Alias aperiam, at cum delectus deleniti dicta earum eos esse et ipsam laboriosam minus molestiae natus nobis
+          omnis quasi sapiente velit. Consequuntur doloribus ducimus, illo magni neque officia quam? Repudiandae!</p>
+      <p>A ab architecto commodi culpa dicta error est ex fugit harum hic inventore labore libero minima, nam
+          necessitatibus nisi odio provident qui quia quisquam quos ratione sequi similique ut voluptatum.</p>
+      <p>Doloremque, dolorum impedit ipsum maiores molestias odit perferendis quae quibusdam, sit tempore vitae
+          voluptates? Aut ex expedita harum mollitia. Dicta dolores hic non perspiciatis. Fugit hic incidunt nisi sed
+          ut!</p>
+      <p>Accusamus aspernatur autem, consectetur excepturi explicabo facere facilis fuga, iste iusto labore laborum
+          magni maxime, mollitia nam nisi pariatur quasi quo rem reprehenderit repudiandae sapiente similique soluta
+          ullam unde voluptates!</p>
+      <p>Ab aliquid, beatae dolor dolore ducimus iste libero neque non officiis qui quidem quod repellat sequi, suscipit
+          veritatis. Atque consequuntur eaque excepturi labore obcaecati odit omnis reprehenderit sed sit soluta!</p>
+      <p>Accusamus aliquam, dolor eum exercitationem fugiat labore minima molestias repudiandae sunt temporibus totam
+          vero voluptate? Consequatur dicta exercitationem facilis, illum ipsa itaque rem! Dignissimos est, ipsa minima
+          nesciunt sequi tempore?</p>
+      <p>Aliquam aliquid aspernatur consequatur, debitis exercitationem facilis incidunt, inventore itaque libero, modi
+          nam neque quaerat recusandae rem sunt velit vero! Delectus eveniet facere ipsum minus odit optio quisquam
+          sapiente vel.</p>
+      <p>Beatae commodi, consequuntur error et fugiat in incidunt itaque minima nihil odit possimus quo, sint vel!
+          Accusamus dolorem molestias optio quod rerum. Enim id maiores mollitia qui quod sit sunt.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid autem delectus deleniti dolor eligendi
+          exercitationem ipsa, ipsum laborum laudantium minima nesciunt placeat quae quam recusandae sed sequi totam,
+          vero vitae?</p>
+      <p>Consequatur cum expedita maiores numquam, odio repellendus tenetur veniam! Ab ad autem culpa delectus deserunt
+          ea et eveniet harum hic iste magni, maxime minima neque praesentium quas quasi sequi vel.</p>
+      <p>Alias aperiam, at cum delectus deleniti dicta earum eos esse et ipsam laboriosam minus molestiae natus nobis
+          omnis quasi sapiente velit. Consequuntur doloribus ducimus, illo magni neque officia quam? Repudiandae!</p>
+      <p>A ab architecto commodi culpa dicta error est ex fugit harum hic inventore labore libero minima, nam
+          necessitatibus nisi odio provident qui quia quisquam quos ratione sequi similique ut voluptatum.</p>
+      <p>Doloremque, dolorum impedit ipsum maiores molestias odit perferendis quae quibusdam, sit tempore vitae
+          voluptates? Aut ex expedita harum mollitia. Dicta dolores hic non perspiciatis. Fugit hic incidunt nisi sed
+          ut!</p>
+      <p>Accusamus aspernatur autem, consectetur excepturi explicabo facere facilis fuga, iste iusto labore laborum
+          magni maxime, mollitia nam nisi pariatur quasi quo rem reprehenderit repudiandae sapiente similique soluta
+          ullam unde voluptates!</p>
+      <p>Ab aliquid, beatae dolor dolore ducimus iste libero neque non officiis qui quidem quod repellat sequi, suscipit
+          veritatis. Atque consequuntur eaque excepturi labore obcaecati odit omnis reprehenderit sed sit soluta!</p>
+      <p>Accusamus aliquam, dolor eum exercitationem fugiat labore minima molestias repudiandae sunt temporibus totam
+          vero voluptate? Consequatur dicta exercitationem facilis, illum ipsa itaque rem! Dignissimos est, ipsa minima
+          nesciunt sequi tempore?</p>
+      <p>Aliquam aliquid aspernatur consequatur, debitis exercitationem facilis incidunt, inventore itaque libero, modi
+          nam neque quaerat recusandae rem sunt velit vero! Delectus eveniet facere ipsum minus odit optio quisquam
+          sapiente vel.</p>
+      <p>Beatae commodi, consequuntur error et fugiat in incidunt itaque minima nihil odit possimus quo, sint vel!
+          Accusamus dolorem molestias optio quod rerum. Enim id maiores mollitia qui quod sit sunt.</p>
+      </div>     <!-- this cintent  -->
+
+<script>
+    $(document).ready(function () {
+        var navPosition,
+            scrollWindow,
+            heigthNav;
+
+        function resizeWindow() {
+            navPosition = $('nav').offset().top;
+
+            heigthNav = $('nav').outerHeight(true);
+            $('.navPos').text(navPosition);
+        };
+        resizeWindow();
+        $(window).resize(resizeWindow);
+
+
+        $('<div class="clon_nav"></div>').insertBefore('nav').css("height",heigthNav ).hide();
+        console.log(heigthNav);
+
+
+
+        $(window).scroll(function () {
+             scrollWindow = $(window).scrollTop();
+            $('.scrollPos').text(scrollWindow);
+
+            if( scrollWindow >= navPosition ){
+                $('nav').addClass('fixedCls');
+                $('.clon_nav').show();
+            }else{
+                $('nav').removeClass('fixedCls');
+                $('.clon_nav').hide();
+            }
+        }); //end scroll
+
+
+
+
+    }); //end ready
+
+</script>
+</body>
+</html>
