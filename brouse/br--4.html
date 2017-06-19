@@ -1,0 +1,75 @@
+<!-- ---------------------------------------------------------------------------------------->
+<!--
+Напишите полифилл для метода remove для старых браузеров.
+Вызов elem.remove():
+    Если у elem нет родителя – ничего не делает.
+    Если есть – удаляет элемент из родителя.
+-->
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<meta name="viewport"-->
+          <!--content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <!--<title>Document</title>-->
+<!--</head>-->
+<!--<body>-->
+    <!--<div>Это</div>-->
+    <!--<div>Все</div>-->
+    <!--<div>Элементы DOM</div>-->
+
+    <!--<script>-->
+      <!--if(!Object.prototype.remove) {-->
+          <!--Object.prototype.remove = function() {-->
+              <!--this.parentNode.removeChild(this);-->
+          <!--}-->
+      <!--}-->
+
+        <!--var elem = document.body.children[0];-->
+
+        <!--elem.remove(); // <&#45;&#45; вызов должен удалить элемент-->
+    <!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!------------------------------------------------------------------------------------------>
+<!------------------------------------------------------------------------------------------>
+
+<!-- Напишите функцию insertAfter(elem, refElem), которая добавит elem после узла refElem. -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>Это эл-1</div>
+    <div>Элементы эл-2</div>
+<!-- ---------------------------------------------------------- -->
+    <script>
+        var elem = document.createElement('div');
+        elem.innerHTML = 'Новый элемент <b>"NEW"</b>';
+
+        function insertAfter(elem, refElem) {
+           return refElem.parentNode.insertBefore(elem, refElem.nextElementSibling );
+
+        }
+
+        var body = document.body;
+        // вставить elem после первого элемента
+        console.log(body.firstElementChild.innerHTML );
+        insertAfter(elem, body.firstElementChild ); // <--- должно работать
+
+        // вставить elem за последним элементом
+        insertAfter(elem, body.lastChild ); // <--- должно работать
+
+
+    </script>
+
+</body>
+</html>
+

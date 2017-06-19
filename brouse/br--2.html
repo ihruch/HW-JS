@@ -1,0 +1,173 @@
+<!-- 
+		ТИПА АККОРДИОНА 
+  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<!--------------------------------- -->	
+	<style>
+		.wrap{
+			
+			margin: 50px 100px;	
+		}	
+		h2{
+			background-color: #00ff8c;
+			margin: 0;
+			padding: 0;
+			cursor: pointer;
+			font-size: 24px;
+			border-radius:  10px 10px 0 0; 
+		}
+		.stat{
+			font-size: 14px;
+			color: #fff;
+			line-height: 24px;
+			margin-left: 15px;
+			margin-right: 50px;
+			
+		}
+		.item_cont{
+			background-color: #eee;
+			padding: 15px;
+			border-radius: 0 0 10px 10px; 
+		}
+		.hidden{
+			display: none;
+			transition: all 1s ease;
+		}
+		.is_active{
+			background-color: tomato!important;
+		}
+		
+	</style>
+<!--------------------------------- -->	
+</head>
+<body>
+	
+	<div class="wrap">
+		<h2 onclick="hideToggle(this)"><span class="stat">[Open]</span>Это заголовок </h2>
+		<div class='item_cont hidden' >Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</div>
+	</div>
+	<div class="wrap">
+		<h2 onclick="hideToggle(this)"><span class="stat">[Open]</span>Это заголовок </h2>
+		<div class='item_cont hidden'>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты.</div>
+	</div>
+
+	
+<!--------------------------------- -->
+<script>
+	function hideToggle(elem){
+
+
+	    elem.classList.toggle('is_active');
+
+		var current = elem.nextElementSibling.classList.toggle('hidden');
+
+//		console.log(current);
+		var status = elem.getElementsByClassName('stat')[0];
+
+		status.innerHTML = (!current)? '[Close]' :  '[Open]';
+	}
+	
+	
+</script>	
+</body>
+</html>
+<!--
+ ПРОСТОЙ АККОРДИН !!!!!!!!!!
+
+ -->
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="enx`">-->
+<!--<head>-->
+	<!--<meta charset="UTF-8">-->
+	<!--<title>Task 1</title>-->
+	<!--<script-->
+			<!--src="https://code.jquery.com/jquery-2.2.4.min.js"-->
+			<!--integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="-->
+			<!--crossorigin="anonymous"></script>-->
+	<!--<style>-->
+		<!--.wrap{-->
+			<!--width: 500px;-->
+			<!--border: 1px solid #000;-->
+			<!--margin: 0 auto;-->
+			<!--padding: 5px;-->
+
+		<!--}-->
+		<!--h2{-->
+			<!--font-size: 20px;-->
+			<!--font-weight: 700;-->
+			<!--background-color: tomato;-->
+			<!--text-align: center;-->
+			<!--border-radius: 5px 5px 0 0;-->
+			<!--margin: 0;-->
+			<!--padding: 0;-->
+			<!--margin-top: 10px;-->
+			<!--line-height: 30px;-->
+			<!--cursor: pointer;-->
+
+		<!--}-->
+		<!--article{-->
+			<!--background-color: #eeeeee;-->
+			<!--border-radius: 0 0 5px 5px;-->
+			<!--padding: 10px;-->
+		<!--}-->
+		<!--.hidden{-->
+			<!--display: none;-->
+
+		<!--}-->
+
+
+	<!--</style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="wrap">-->
+	<!--<h2 onclick="clickTitle(this)">Lorem ipsum dolor.</h2>-->
+	<!--<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem excepturi id minus modi voluptatum. Atque.</article>-->
+
+	<!--<h2 onclick="clickTitle(this)">Lorem ipsum dolor.</h2>-->
+	<!--<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem excepturi id minus modi voluptatum. Atque.</article>-->
+
+	<!--<h2 onclick="clickTitle(this)">Lorem ipsum dolor.</h2>-->
+	<!--<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem excepturi id minus modi voluptatum. Atque.</article>-->
+
+	<!--<h2 onclick="clickTitle(this)">Lorem ipsum dolor.</h2>-->
+	<!--<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem excepturi id minus modi voluptatum. Atque.</article>-->
+
+	<!--<h2 onclick="clickTitle(this)">Lorem ipsum dolor.</h2>-->
+	<!--<article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem excepturi id minus modi voluptatum. Atque.</article>-->
+<!--</div>-->
+
+<!--<script>-->
+
+    <!--var wrap = document.querySelector('.wrap');-->
+    <!--var tagArticle = wrap.getElementsByTagName('article');-->
+
+    <!--for (var i = 1; i < tagArticle.length; i++) {-->
+        <!--tagArticle[i].classList.add('hidden');-->
+    <!--}-->
+
+    <!--function clickTitle(elem){-->
+        <!--for (var i = 0; i < tagArticle.length; i++) {-->
+            <!--tagArticle[i].classList.add('hidden');-->
+        <!--}-->
+        <!--elem.nextElementSibling.classList.remove('hidden');-->
+
+    <!--}-->
+
+
+
+
+
+
+
+
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

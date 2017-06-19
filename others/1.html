@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- ------------------------------------------- -->
+    <style>
+    .linePreloader{
+        width: 300px;
+        height: 5px;
+        background: linear-gradient(to right, green, green);
+        background-color: #eee;
+        position: fixed;
+        border: 1px solid #000;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        border-radius: 5px;
+
+        background-size: 20%;
+        background-repeat: repeat-y;
+        background-position: -15% 0;
+        animation: scroll 2s ease infinite ;
+
+    }
+        @keyframes scroll {
+            50%{ background-size: 85%;}
+            100%{ background-position: 125% 0;
+            }
+        }
+
+    </style>
+
+    <!-- ------------------------------------------- -->
+</head>
+<body>
+    <div class="linePreloader"></div>
+</body>
+</html>

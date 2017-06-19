@@ -1,0 +1,84 @@
+<!-- ТИПА ПОХОЖЕ НА МЕНЮ -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!-- ------------------------------------------------------------------------------------ -->
+ <style>
+      ul{
+          list-style: none;
+          margin: 0;
+
+      }
+      .div1{
+          -display: inline-block;
+      }
+     span {
+         display: inline-block;
+         padding: 5px;
+         cursor: pointer;
+     }
+      .wrap ul,
+      .wrap ul{
+         display: none;
+     }
+       .wrap.open ul{
+
+          display: block;
+           border: 1px solid #000;
+           width: 100px;
+      }
+     .red{
+         color: red;
+     }
+
+ </style>
+
+<!-- ------------------------------------------------------------------------------------ -->
+</head>
+<body>
+
+<div class="wrap" >
+    <span class="title" > [ VEGETABLES ]</span>
+    <ul>
+        <li>eggPlant</li>
+        <li>cabbge</li>
+    </ul>
+</div>
+<div class="wrap" >
+    <span class="title" >   [ FRUIT ]</span>
+    <ul>
+        <li>apple</li>
+        <li>plum</li>
+        <li>quince</li>
+        <li>persimon</li>
+    </ul>
+</div>
+
+
+<!-- ------------------------------------------------------------------------------------ -->
+<script>
+   var title = document.querySelectorAll('.title');
+    console.log(title.length);
+   for (var i = 0; i < title.length; i++) {
+
+       var elemTitle = title[i];
+
+       elemTitle.onclick = function () {
+           var parent = this.parentNode;
+           parent.classList.toggle('open');
+       }
+
+       
+   }
+
+
+
+</script>
+<!-- ------------------------------------------------------------------------------------ -->
+</body>
+</html>

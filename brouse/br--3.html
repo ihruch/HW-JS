@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>
+		Enter text:
+		<input type="text" id='inp1'>
+		<button onclick="pow2()">Квадрат числа</button>
+	</p>
+	<div id='result'>0</div>
+<!-- ------------------------------------------ -->
+<script>
+	function pow2(){
+		var elem = document.getElementById('inp1').value;
+		//alert(elem*elem);
+		
+	//	document.getElementById('result').innerHTML = elem*elem;
+	 document.querySelector('div').innerHTML = elem*elem; 
+		 
+	}
+</script>		
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!-- ------------------------------------------------- -->
+    <style>
+        #test{
+            position: relative;
+            width: 600px;
+            height: 100px;
+            margin: 50px;
+            background-color: yellow;
+        }
+        #test2{
+            position: absolute;
+            top: 0;
+            left: 290px;
+            width: 10px;
+            height: 100px;
+
+            background-color: blue;
+        }
+    </style>
+<!-- ------------------------------------------------- -->
+</head>
+<body>
+
+   <p> Направление: <span id="line"></span></p>
+   <p> Скорость: <span id="speed"></span></p>
+
+   <div id="test">
+       <div id="test2">
+           <span id="count"></span>
+       </div>
+   </div>
+
+   <!-- ------------------------------------------------- -->
+<script>
+    document.onwheel = function(e) {
+        //определяем направлени прокрутки колесика
+        if( e.deltaY > 0){
+            document.getElementById('line').innerHTML = 'вниз';
+        }else {
+            document.getElementById('line').innerHTML = 'UP';
+        };
+
+        //делаем гградацию какая скорость прокрутки
+
+        var speed  = e.deltaY;
+        speed = Math.abs(speed);
+
+        if( speed<3 ){
+            document.getElementById('speed').innerHTML = 'низкая';
+        }
+        else if(speed < 6){
+            document.getElementById('speed').innerHTML = 'средняя';
+        }
+        else if(speed < 9){
+            document.getElementById('speed').innerHTML = 'высокая';
+        }
+        else{
+            document.getElementById('speed').innerHTML = 'очень высокая';
+        }
+        console.log(e);
+    };
+        // будем сдвигать синю полоску прокручивая колесико мышки
+
+        var left = 290;
+
+        document.getElementById('test').onwheel = function(e) {
+
+            var line = e.deltaY;
+
+                left = left + line;
+                document.getElementById('test2').style.left = left + 'px';
+
+                var info = document.getElementById('count');
+                info.innerHTML = +info.innerHTML + line;
+                return false;
+
+
+        };
+
+
+
+
+
+
+
+</script>
+<!-- ------------------------------------------------- -->
+</body>
+</html>

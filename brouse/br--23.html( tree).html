@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<!-- ------------------------------------------------- -->
+    <style>
+        li{
+            /*border: 1px solid #000;*/
+        }
+        span:hover{
+            -font-weight: bold;
+        }
+
+        span {
+            /*border: 1px solid red;*/
+        }
+        .hidden{
+            display: none;
+        }
+
+    </style>
+<!-- ------------------------------------------------- -->
+</head>
+<ul class="tree">
+    <li>Животный
+        <ul>
+            <li>Дикие</li>
+            <li>Дикие-2</li>
+            <li>Домашние
+                <ul>
+                    <li>Собака</li>
+                    <li>Ферма
+                        <ul>
+                            <li>Корова</li>
+                            <li>Лошадь</li>
+                            <li>Ослик</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li> <!--end Животные-->
+    <li>Рыбы
+        <ul>
+            <li>Речные
+                <ul>
+                    <li>Травоядные</li>
+                    <li>Хищники
+                        <ul>
+                            <li>Сом</li>
+                            <li>Щука</li>
+                            <li>Окунь</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li>Морские
+                <ul>
+                    <li>Акула</li>
+                    <li>Скат</li>
+                    <li>Бычок</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+<!-- ------------------------------------------------- -->
+    <script>
+        var table = document.querySelector('.tree');
+        var li = table.getElementsByTagName('li');
+
+        //Оборачиваем собержимое LI  в SPAN
+        for (var i = 0; i < li.length; i++) {
+
+            var span = document.createElement('span');
+            li[i].prepend(span);
+            span.append(span.nextSibling);
+        }
+
+
+        // добавляет цифру вложенности.
+        for (var i = 0; i < li.length; i++) {
+            var elem = li[i].getElementsByTagName('li').length;
+            
+            if( elem ){
+              li[i].firstChild.textContent +=  '[ '+elem+' ]' ;
+            }
+        }
+
+        /*------ДЕЛЕГИРОВАНИЕ------*/
+        
+        table.onclick = function (e) {
+            //узнаем на что кликнули
+            var target = e.target;
+
+            // проверяем SPAN это или нет..все остальное отбрасываем
+            if( target.tagName != 'SPAN' ) return;
+
+            // смотрим в LI есть теги UL если да то берем первый и в последствии добавляем ему класс HIDDEN
+            var childUL = target.parentNode.getElementsByTagName('ul')[0];
+            if(!childUL) return;
+
+             childUL.hidden = !childUL.hidden;
+          //тоже самое что и предыдущая строка
+         // childUL.classList.toggle('hidden');
+
+
+
+        }
+    </script>
+<!-- ------------------------------------------------- -->
+</body>
+</html>

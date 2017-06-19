@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .hidden{
+            display: block;
+        }
+        form{
+            margin: 20px 0;
+
+        }
+    </style>
+
+</head>
+<body>
+
+<button data-toggle-id="subscribe-mail">
+    Нажми и появится форма для заполнения
+</button>
+<form id="subscribe-mail" hidden>
+    Ваша почта: <input type="email">
+</form>
+<!-- ------------------------------------------------- -->
+<script>
+    document.addEventListener('click', function (e) {
+        var target = e.target;
+
+        var id = target.getAttribute('data-toggle-id');
+
+        if(!id) return;
+
+        var element = document.getElementById(id);
+
+        element.hidden = !element.hidden;
+       // elemnt.classList.toggle('hidden');
+
+
+
+    });
+</script>
+<!-- ------------------------------------------------- -->
+</body>
+</html>

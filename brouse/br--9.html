@@ -1,0 +1,81 @@
+<!-- Создайте цветные часики как в примере ниже: -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!-- -------------------------------------- -->
+    <style>
+        span{
+            font-size: 40px;
+            font-weight: bold;
+        }
+    </style>
+    <!-- -------------------------------------- -->
+</head>
+<body>
+<div id="clock">
+    <span >00</span> :
+    <span >00</span> :
+    <span >00</span>
+</div>    
+<!-- ---------------------- -->
+
+<script>
+
+function getTimeClock() {
+
+    setInterval(function () {
+        var d = new Date();
+        //hours
+
+        var hour = d.getHours();
+        if(hour < 10){ hour = '0'+hour; }
+        clock.children[0].textContent = hour;
+
+        //minute
+        var min = d.getMinutes();
+        if( sec < 10 ){ min = '0' + min;}
+        clock.children[1].textContent = min;
+
+
+        // second
+        var sec = d.getSeconds();
+        if( sec < 10 ){ sec = '0' + sec;}
+        clock.children[2].textContent = sec;
+
+
+
+    },1000);
+}// getTimeClock
+
+    function randomColor(arr) {
+
+        return Math.round(Math.random()*arr.length);
+    }
+    function changeColor() {
+        var arrColor = ['red','green','yellow','gold','tomato','purple','orange','gray','lime','blue','green',  ];
+        setInterval(function () {
+            clock.children[0].style.color = arrColor[randomColor(arrColor)];
+            clock.children[1].style.color = arrColor[randomColor(arrColor)];
+            clock.children[2].style.color = arrColor[randomColor(arrColor)];
+        },1000)
+    }
+
+
+
+
+
+
+
+getTimeClock();
+changeColor()
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+<!-- ------------------------------------------------- -->
+    <style>
+        table{
+            margin: 50px auto;
+        }
+        th {
+            cursor: pointer;
+        }
+
+        th:hover {
+            background: lightgreen;
+        }
+    </style>
+<!-- ------------------------------------------------- -->
+</head>
+
+<body>
+
+<table id="grid">
+    <thead>
+        <tr>
+            <th data-type="number">Возраст</th>
+            <th data-type="string">Имя</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr> <td>5 </td>  <td>Вася</td>  </tr>
+        <tr> <td>2 </td>  <td>Петя</td>  </tr>
+        <tr> <td>12</td>  <td>Женя</td>  </tr>
+        <tr> <td>9 </td>  <td>Маша</td>  </tr>
+        <tr> <td>1 </td>  <td>Илья</td>  </tr>
+    </tbody>
+</table>
+<!-- ------------------------------------------------- -->
+<script>
+
+    var grid = document.getElementById('grid');
+    var thead = grid.querySelector('thead');
+
+    thead.onclick = function (e) {
+        var target = e.target;
+
+        if(target.tagName != 'TH') return;
+        // если мы попали в TH то вызывем функцию
+        
+        var v = target.getAttribute('data-type');
+        sortColumn(target.cellIndex , v);
+//        console.log(target.getAttribute('data-type'));
+
+    }// end click;
+
+    function  sortColumn(numColumn ,typeContent) {
+
+        var tbody = document.querySelector('tbody');
+
+        //создаем массив строк
+        var  arrayRow = [].slice.call(tbody.rows);
+
+        var compare;
+        switch(typeContent){
+            case 'number':
+                compare = function (rowA,rowB) {
+                         return rowA.cells[numColumn].innerHTML - rowB.cells[numColumn].innerHTML;
+                };// end
+            break;
+
+            case 'string':
+                compare = function (rowA,rowB) {
+                    return rowA.cells[numColumn].innerHTML >  rowB.cells[numColumn].innerHTML? 1 : -1 ;
+                };// end
+            break;
+
+        };
+
+        console.log(arrayRow);
+        // берем наш массив и сортируем его . функцию передаем взвасимости от параместра какой тип данных пришел ё
+        arrayRow.sort(compare);
+        //-удаляем DOM далее будем строить новый после сортировки
+        grid.removeChild(tbody);
+
+        for (var i = 0; i < arrayRow.length; i++) {
+            tbody.appendChild(arrayRow[i]);
+        };
+
+
+        grid.appendChild(tbody) ;
+
+    }// end sortColumn
+
+
+
+</script>
+<!-- ------------------------------------------------- -->
+</body>
+</html>

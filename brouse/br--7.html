@@ -1,0 +1,85 @@
+<!-- Напишите функцию, которая создаёт вложенный список UL/LI (дерево) из объекта.
+выберите один из двух способов решения этой задачи:
+    Создать строку, а затем присвоить через container.innerHTML.
+    Создавать узлы через методы DOM.
+
+
+ -->
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container{
+            border: 1px solid #000;}
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<!-- ------------------------------------------- -->
+<script>
+    var data = {
+        "Рыбы": {
+            "Морская":{
+                "Форель": {},
+                "Семга": {},
+                "Катран": {}
+            },
+            "Речная":{
+                "Хищники": {
+                    "Щука": {},
+                    "Сом" : {
+                        "Больщой" : {},
+                        "Мелкий" : {}
+                    }
+                },
+                "не Хищники": {
+                    "Карп" : {},
+                    "Корась" : {},
+                    "Лещ" : {}
+                }
+            }
+        }
+    };
+
+function createTree(container,obj) {
+    container.appendChild(createTreeDom(obj));
+}// end createTree
+
+function createTreeDom(obj) {
+    if( isEmptyObj(obj) ) return;
+
+    var ul = document.createElement('ul');
+
+    for (var key in obj) {
+        var li = document.createElement('li');
+        li.innerHTML = key;
+
+        var childrenUL = createTreeDom(obj[key]);
+        if(childrenUL) li.appendChild(childrenUL);
+
+        ul.appendChild(li);
+    }
+    return ul;
+}// end createTreeDom
+
+function  isEmptyObj(obj) {
+    for (var key in obj) {
+        return false;
+    }
+    return true;
+}
+
+container = document.getElementById('container');
+createTree(container,data);
+</script>
+
+</body>
+</html>

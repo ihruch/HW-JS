@@ -1,0 +1,64 @@
+<!--
+    ПОГРЕСС БАР
+
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- -------------------------------------------- -->
+    <style>
+        #myProgres{
+            position: relative;
+            width: 400px;
+            height: 30px;
+            background-color: #dddddd;
+        }
+        #myBar{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10%;
+            height: 100%;
+            background-color: #4caf50;
+        }
+        #lab{
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+    </style>
+    <!-- -------------------------------------------- -->
+</head>
+<body>
+    <div id="myProgres">
+        <div id="myBar">
+            <div id="lab">10%</div>
+        </div>
+    </div>
+    <button onclick="move()">Enter</button>
+<!-- -------------------------------------------- -->
+    <script>
+        function move() {
+            var elem = document.getElementById('myBar');
+            var wdt = 10;
+            var timeID = setInterval(frame,10);
+
+            function frame() {
+                if(wdt >=100){
+                    clearInterval(timeID);
+                }else{
+                    wdt++;
+                    elem.style.width = wdt+'%';
+                    document.getElementById('lab').innerHTML = wdt+'%';
+                }
+            }
+        }
+
+
+
+    </script>
+    <!-- -------------------------------------------- -->
+</body>
+</html>

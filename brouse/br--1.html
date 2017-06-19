@@ -1,0 +1,48 @@
+<!--
+  Сделайте желтыми внешние ссылки, добавив им класс external.
+
+Все ссылки без href, без протокола и начинающиеся с http://internal.com считаются внутренними.
+  -->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .external {
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+ <a id="elem" >ЖМИ</a>
+ <ul>
+     <li><a href="http://google.com">http://google.com</a></li>
+     <li><a href="/tutorial">/tutorial.html</a></li>
+     <li><a href="local/path">local/path</a></li>
+     <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+     <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+     <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+ </ul>
+
+ <script>
+     var mElem = document.querySelectorAll('a[href]');
+
+     for (var i = 0; i < mElem.length; i++){
+         var a = mElem[i];
+         //console.log(mElem[i]);
+         if( a.getAttribute('href').indexOf('://') > 0 &&  a.getAttribute('href').indexOf('internal') < 0  ){
+             a.classList.add('external');
+         }
+
+     }
+ </script>
+
+</body>
+</html>

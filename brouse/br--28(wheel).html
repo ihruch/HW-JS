@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!-- ------------------------------------------------- -->
+    <style>
+        #test{
+            position: relative;
+            width: 600px;
+            height: 600px;
+            margin: 50px auto;
+            background-color: #eee;
+            border: 5px solid #000;
+            display: flex;
+            overflow: hidden;
+
+        }
+        #test2{
+            font-size: 18px;
+            color: #1a1a1a;
+            border: 1px solid #000;
+            width: 250px;
+            height: 70px;
+            margin: auto;
+            background-color: blue;
+
+        }
+    </style>
+<!-- ------------------------------------------------- -->
+</head>
+<body>
+
+     <div id="test">
+       <div id="test2">
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, cnventore itaque natus!
+       </div>
+   </div>
+
+   <!-- ------------------------------------------------- -->
+<script>
+    var target = document.getElementById('test2');
+    var x = 1;
+
+    target.onwheel = function (event) {
+        event = event || window.event;
+        var count = event.deltaY;
+        x = x + count*0.01;
+        target.style.transform = 'scale('+ x +')';
+        console.log(event);
+
+        return false;
+
+
+    };
+
+
+
+
+
+
+
+
+</script>
+<!-- ------------------------------------------------- -->
+</body>
+</html>

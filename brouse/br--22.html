@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!-- ------------------------------------------------- -->
+    <style>
+        body {
+            margin: 10px auto;
+            width: 470px;
+        }
+
+        h3 {
+            margin: 0;
+            padding-bottom: .3em;
+            font-size: 1.1em;
+            margin-right: 25px;
+
+        }
+
+        p {
+            margin: 0;
+            padding: 0 0 .5em;
+        }
+
+        .pane {
+            background: #edf5e1;
+            padding: 10px 20px 10px;
+            border-top: solid 5px #c4df9b;
+            position: relative;;
+        }
+
+        .remove-button {
+            font-size: 110%;
+            color: darkred;
+
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: transparent;
+
+            position: absolute;
+            top: 8px;
+            right: 15px;
+        }
+    </style>
+<!-- ------------------------------------------------- -->
+</head>
+<body>
+    <div id="wrap_section">
+        <div class="pane">
+            <h3>Лошадь</h3>
+            <p>Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+        <div class="pane">
+            <h3>Осёл</h3>
+            <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+        <div class="pane">
+            <h3>Осёл-2</h3>
+            <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+        <div class="pane">
+            <h3>Осёл-3</h3>
+            <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+        <div class="pane">
+            <h3>Осёл-4</h3>
+            <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+        <div class="pane">
+            <h3>Осёл-5</h3>
+            <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+        <div class="pane">
+            <h3>Осёл-6</h3>
+            <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>
+            <button class="remove-button">[x]</button>
+        </div>
+    </div>
+
+<!-- ------------------------------------------------- -->
+<script>
+    /* ЧЕРЕЗ ОБХОД ЭЛЕМЕНТОВ*/
+   /* var pane = document.querySelectorAll('.pane');
+    var btn = document.querySelectorAll('.remove-button')
+
+    for (var i = 0; i < btn.length; i++) {
+        var button = btn[i];
+
+        button.onclick = function () {
+            var parent = this.parentNode;
+            parent.parentNode.removeChild(parent);
+        }
+    }*/
+/*  ЧЕРЕЗ ДЕЛЕГИРОВАНИЕ*/
+   var wrapSection = document.getElementById('wrap_section');
+   var pane = document.querySelectorAll('.pane');
+   var btn = document.querySelectorAll('.remove-button');
+
+   wrapSection.onclick = function (e) {
+       
+       var target = e.target;
+       if( !target.classList.contains('remove-button') ) return;
+
+       target.parentNode.style.display = 'none';
+  }
+
+
+
+
+
+</script>
+<!-- ------------------------------------------------- -->
+</body>
+</html>

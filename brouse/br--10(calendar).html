@@ -1,0 +1,126 @@
+<!--
+Напишите функцию, которая умеет генерировать календарь для заданной пары (месяц, год).
+
+Календарь должен быть таблицей, где каждый день – это TD.
+У таблицы должен быть заголовок с названиями дней недели, каждый день – TH.
+
+Синтаксис: createCalendar(id, year, month).
+
+Такой вызов должен генерировать текст для календаря месяца month в году year, а затем помещать его внутрь элемента с указанным id.
+Например: createCalendar("cal", 2012, 9) сгенерирует в <div id=„cal“></div> следующий
+
+ -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!-- --------------------------------------------------- -->
+<style>
+    body{
+        border: 1px solid #000;
+        padding: 5px;
+
+    }
+    div{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    table {
+        border-collapse: collapse;
+        display: flex;
+        justify-content: center;
+    }
+
+    td,th {
+        border: 1px solid black;
+        padding: 5px 8px;
+        text-align: center;
+    }
+
+    th {
+        font-weight: bold;
+        background-color: #E6E6E6;
+    }
+    h1{
+        text-align: center;
+        font-size:50px;
+        margin: 0;
+    }
+</style>
+<!-- --------------------------------------------------- -->
+<body>
+
+
+<!-- --------------------------------------------------- -->
+<script>
+    //кол дней в месяце
+    Date.prototype.getDaysInMonth = function(){
+
+        return 32 - (new Date(this.getFullYear(), this.getMonth(), 32)).getDate();
+    };
+    // делаем воскресень 7 днем а не 0
+    function getDay(date) {
+        var day =date.getDay();
+        if(day == 0 ) day = 7;
+        return day-1;
+    }
+
+
+    function createCalendar(id, year, month){
+        // find DAte;
+        var mon = month-1;
+        var d = new Date(year,mon);
+        //
+        var h1 = document.createElement('h1');
+        h1.innerHTML = d.toLocaleString("ru",{month: 'long'});
+        document.body.appendChild(h1);
+
+        // create div
+        var div = document.createElement('div');
+        div.setAttribute('id',id);
+        document.body.appendChild(div);
+
+        //Definition variable table
+        var table = '<table><tr> <th>ПН</th> <th>ВТ</th> <th>СР</th> <th>ЧТ</th> <th>ПТ</th> <th>СБ</th> <th>ВС</th></tr><tr>'
+        
+
+
+        // get day of weeks
+        for (var j = 1; j < getDay(d)+1; j++) {
+          table += '<td></td>'
+
+        }
+
+        var paramDate =  d.getDaysInMonth();
+
+        while( d.getDate() !=  paramDate){
+            table += '<td>' + d.getDate() + '</td>';
+            if( getDay(d)%7 == 6){
+                table += '</tr><tr>';
+            }
+
+            d.setDate(d.getDate()+1);
+
+        }
+
+        // закрыть таблицу
+        table += '</tr></table>';
+        // output Table
+        div.innerHTML = table;
+
+    }//
+
+    var  myMonth = prompt('Enter number month')
+    createCalendar("calendar", 2017, myMonth);
+</script>
+<!-- -------------------------------------------------- -->
+</body>
+</html>

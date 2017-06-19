@@ -1,0 +1,117 @@
+<!-- ЗСЩЖАТЬ ТЕГ "А" И НАВЕСИТЬ НА НЕГО CSS СВОЙСТВА ЧЕРЕЩ ОЫ -->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash; -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--<script>-->
+    <!--var butt = document.createElement('a');-->
+    <!--butt.innerHTML = 'Нажми Меня';-->
+    <!--butt.href = '/';-->
+    <!--butt.setAttribute('class','button');-->
+    <!--document.body.appendChild(butt);-->
+
+    <!--butt.style.cssText = " border: 2px groove green; \-->
+                          <!--border-radius: 8px; \-->
+                          <!--display: block; \-->
+                          <!--height :30px; \-->
+                          <!--width: 100px; \-->
+                          <!--text-decoration: none; \-->
+                          <!--text-align: center; \-->
+                          <!--color: gold; \-->
+                          <!--font-weight: bold ; \-->
+                          <!--" ;-->
+
+<!--</script>-->
+<!--&lt;!&ndash; -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+
+<!-- 
+Напишите функцию showNotification(options), которая показывает уведомление, пропадающее через 1.5 сек.
+
+Описание функции:\
+/**
+ * Показывает уведомление, пропадающее через 1.5 сек
+ * @param options.top {number} вертикальный отступ, в px
+ * @param options.right {number} правый отступ, в px
+ * @param options.cssText {string} строка стиля
+ * @param options.className {string} CSS-класс
+ * @param options.html {string} HTML-текст для показа
+ */
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .notification {
+        position: fixed;
+        z-index: 1000;
+        padding: 5px;
+        border: 2px solid black;
+        font: normal 20px Georgia;
+        background: white;
+        text-align: center;
+    }
+
+    .welcome {
+        background: lightgreen;
+        color: tomato;
+    }
+</style>
+<body>
+<h2>Уведомление</h2>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum aspernatur quam ex eaque inventore quod voluptatem adipisci omnis nemo nulla fugit iste numquam ducimus cumque minima porro ea quidem maxime necessitatibus beatae labore soluta voluptatum
+    magnam consequatur sit laboriosam velit excepturi laborum sequi eos placeat et quia deleniti? Corrupti velit impedit autem et obcaecati fuga debitis nemo ratione iste veniam amet dicta hic ipsam unde cupiditate incidunt aut iure ipsum officiis soluta
+    temporibus. Tempore dicta ullam delectus numquam consectetur quisquam explicabo culpa excepturi placeat quo sequi molestias reprehenderit hic at nemo cumque voluptates quidem repellendus maiores unde earum molestiae ad.
+</p>
+<!-- ---------------------------------------------- -->
+<script>
+    function showNotification(options) {
+        var div = document.createElement('div');
+        div.className = 'notification';
+
+        if(options.cssText){
+
+            div.style.cssText = options.cssText;
+        }
+        div.style.top = (options.top || 0  )+'px';
+        div.style.right = (options.right || 0  )+'px';
+
+        if( options.className ){
+            div.classList.add(options.className);
+        }
+         div.innerHTML = options.html;
+         document.body.appendChild(div);
+
+        setInterval(function () {
+            document.body.removeChild(div);
+        },1500)
+    }; //end function
+
+var i =0;
+  setInterval(function () {
+        showNotification({
+            top: 30,
+            right: 30,
+            html: "Привет - " + ++i,
+            className: "welcome"
+        });// end options
+    },2000); // end setInterval
+
+</script>
+<!-- ---------------------------------------------- -->
+</body>
+</html>

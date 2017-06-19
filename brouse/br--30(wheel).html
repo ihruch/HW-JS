@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            height: 2000px;
+        }
+        button{
+            /*position: relative;*/
+        }
+        .toolTipClass{
+            position: fixed;
+            /*top: 50px;*/
+            /*left: 20px;*/
+            border: 1px solid #000;
+            border-radius: 4px;
+            font-size: 18px;
+            padding: 5px 10px;
+            box-shadow: 3px 3px 3px rgba(0,0,0, 0.3);
+            background-color: #eee;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+<p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>
+
+<button data-tooltip="Подсказка длиннее, чем элемент">Короткая кнопка</button>
+<button data-tooltip="HTML<br>подсказка №2">Ещё кнопка</button>
+
+<p>Прокрутите страницу, чтобы ссылки были вверху и проверьте, правильно ли показываются подсказки.</p>
+
+<!-- ------------------------------------------------- -->
+<script>
+
+    document.onmouseover = function (event) {
+        event = event || window.event; // для коссбраузорности
+        var target = event.target; //
+        var toolTipAtribut = target.getAttribute('data-tooltip');
+
+        if( !toolTipAtribut ) return;
+        
+        var toolTipElement = document.createElement('div');
+        toolTipElement.className = 'toolTipClass';
+        toolTipElement.innerHTML = toolTipAtribut;
+        document.body.appendChild(toolTipElement);
+
+        var coord = target.getBoundingClientRect();
+
+        //allow coord left
+        var left = coord.left + ( target.offsetWidth - toolTipElement.offsetWidth )/2;
+        if (left < 0) left = 0; //console.log( coord );
+        console.log('left - ' + left);
+
+        // координаты Ввера подсказки
+        var topp= coord.top - toolTipElement.offsetHeight-5;
+        if( topp < 0){
+            topp = coord.top + target.offsetHeight+5;
+        }
+
+        console.log(topp);
+
+        //
+        toolTipElement.style.top = topp + 'px';
+        toolTipElement.style.left = left + 'px';
+
+
+
+    };
+    // убирает тултип
+    document.onmouseout = function (event) {
+        var elem = document.querySelector('.toolTipClass')
+        document.body.removeChild(elem);
+    };
+
+
+
+</script>
+<!-- ------------------------------------------------- -->
+</body>
+
+</html>

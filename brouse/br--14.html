@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #elem {
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        body {
+            border: 1px solid #700;
+        }
+        #btn{
+            border: 1px solid #000;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <div id="elem">
+        текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+        текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+        текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
+        текст текст
+    </div>
+    <button  onclick="clic()">Enter</button>
+
+    <button  onclick="unclic()">1111</button>
+<!-- ------------------------------------------------- -->
+<script>
+
+    var initialW = getComputedStyle(elem).width;
+
+    function clic() {
+        var elem = document.getElementById("elem");
+        var winWidth = document.body.clientWidth;
+
+        //elem.style.width = 'auto';
+
+
+        elem.style.width = winWidth+'px';
+    }
+   function unclic() {
+       elem.style.width = initialW;
+   }
+</script>
+<!-- ------------------------------------------------- -->
+</body>
+</html>
+<!--этот вариант работает когда в css не стоит свойство box-sizing-->
+<!--var bodyClientWidth = document.body.clientWidth;-->
+
+<!--var style = getComputedStyle(elem);-->
+
+<!--var bodyInnerWidth = bodyClientWidth - parseInt(style.paddingLeft) - parseInt(style.paddingRight);-->
+
+<!--elem.style.width = bodyInnerWidth + 'px';-->

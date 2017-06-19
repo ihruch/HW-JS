@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<!-- ------------------------------------------------ -->
+    <style>
+        body {
+            margin: 10px auto;
+            width: 470px;
+        }
+
+        h3 {
+            margin: 0;
+            padding-bottom: .3em;
+            font-size: 1.1em;
+            margin-right: 20px;
+        }
+
+        p {
+            margin: 0;
+            padding: 0 0 .5em;
+        }
+
+        .pane {
+            background: #edf5e1;
+            padding: 10px 20px 10px;
+            border-top: solid 2px #c4df9b;
+            position: relative;
+        }
+
+        .remove-button {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+
+            font-size: 110%;
+            color: darkred;
+
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: transparent;
+        }
+    </style>
+
+    <!-- ------------------------------------------------ -->
+</head>
+
+<body>
+<!--Кнопка для удаления: <button class="remove-button">[x]</button>-->
+<!-- Дан список сообщений. Добавьте каждому сообщению кнопку для его удаления. -->
+
+
+<div id="mainBlock">
+    <div class="pane">
+        <h3>Лошадь</h3>
+        <p>Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>
+        <button class="remove-button">[x]</button>
+    </div>
+
+    <div class="pane">
+        <h3>Корова, а также пара слов о диком быке, о волах и о тёлках. </h3>
+        <p>Коро́ва — самка домашнего быка, одомашненного подвида дикого быка, парнокопытного жвачного животного семейства полорогих. Самцы вида называются быками, молодняк — телятами, кастрированные самцы — волами. Молодых (до первой стельности) самок называют
+            тёлками.
+        </p>
+        <button class="remove-button">[x]</button>
+    </div>
+</div>
+
+<!-- ------------------------------------------------ -->
+    <script>
+       var btn = document.querySelectorAll('#mainBlock .remove-button');
+       for (var j = 0; j < btn.length ; j++) {
+           var button = btn[j];
+
+           button.onclick = function () {
+               this.parentNode.style.display = 'none';
+//               var el = this.parentNode;
+//               el.parentNode.removeChild(el);
+           };
+
+       }
+    </script>
+
+
+</body>
+</html>

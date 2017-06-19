@@ -1,0 +1,33 @@
+<!-- НАЙТИ ШИРИНУ ПОЛОСЫ ПРОКРУТКИ  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .box{
+        height: 250px;
+        width: 250px;
+        outline: 1px solid #000;
+        margin: auto;
+        overflow: scroll;
+
+    }
+
+</style>
+<body>
+    <div class="box">
+
+    </div>
+<!-- ------------------------------------------- -->
+    <script>
+      var element = document.querySelector('.box');
+      console.log(element.offsetWidth- element.clientLeft*2-element.clientWidth);
+
+
+    </script>
+<!-- ------------------------------------------- -->
+</body>
+</html>
